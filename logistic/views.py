@@ -12,18 +12,18 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['title']
-    search_fields = ['title', 'description']
+    filterset_fields = ["title"]
+    search_fields = ["title", "description"]
 
 
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['products']
-    search_fields = ['products__title', 'products__description']
-    
+    filterset_fields = ["products"]
+    search_fields = ["products__title", "products__description"]
 
-@api_view(['GET'])
+
+@api_view(["GET"])
 def test_page(request):
-    return Response('Проверка автоматического деплоя')    
+    return Response("Проверка автоматического деплоя")
